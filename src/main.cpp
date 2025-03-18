@@ -1,5 +1,8 @@
 #include <GLFW/glfw3.h> //include GLFW for window handling
-#include <iostream> //for printing errors to the console
+#include <iostream> //inputs and outputs
+#include <string> //easier strings
+
+using namespace std;
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -7,13 +10,13 @@ const int HEIGHT = 600;
 int main() {
     //start glfw
     if (!glfwInit()) {
-        std::cerr << "Failed to initialize GLFW :(" << std::endl;
+        cerr << "Failed to initialize GLFW :(" << endl;
         return -1;
     }
     //creates window
     GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "c3D", nullptr, nullptr);
     if (!window) {
-        std::cerr << "Failed to initialize GLFW :(" << std::endl;
+        cerr << "Failed to initialize GLFW :(" << endl;
         glfwTerminate();
         return -1;
     }
