@@ -7,7 +7,14 @@ using namespace std;
 const int WIDTH = 800;
 const int HEIGHT = 600;
 
-int main() {
+bool debug = true;
+
+int main()
+{
+    if (debug) {
+    cout << "Initializing..." << endl;
+    }
+
     //start glfw
     if (!glfwInit()) {
         cerr << "Failed to initialize GLFW :(" << endl;
@@ -19,21 +26,23 @@ int main() {
         cerr << "Failed to initialize GLFW :(" << endl;
         glfwTerminate();
         return -1;
+    } else {
+        cout << "Succesfully created window" << endl;
     }
 
     //let OpenGL know where to render
     glfwMakeContextCurrent(window);
 
-    //MAIN LOOP
+    //MAIN LOOP (while window is NOT instructed to close)
     while (!glfwWindowShouldClose(window)) {
-    //clear default black screen
-    glClear(GL_COLOR_BUFFER_BIT);
+        //clear default black screen
+        glClear(GL_COLOR_BUFFER_BIT);
 
-    //swap buffers with new one each frame
-    glfwSwapBuffers(window);
+        //swap buffers with new one each frame
+        glfwSwapBuffers(window);
 
-    //poll for events (Inputs and whatnot)
-    glfwPollEvents();
+        //poll for events (Inputs and whatnot)
+        glfwPollEvents();
     }
 
     //Exit cleanup stuff
